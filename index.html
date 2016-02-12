@@ -1,10 +1,15 @@
 <html>
   <head>
-    <base href="/">
-    <title>Angular 2 Quickstart</title>
+    <base href='/'>
+    <title>Angular 2 Tour of Heroes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="styles.css">
 		
     <!-- 1. Load libraries -->
     <script src="node_modules/es6-shim/es6-shim.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    
     <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
@@ -14,22 +19,26 @@
     <!-- 2. Configure SystemJS -->
     <script>
       System.config({
+        paths: {
+          "node_modules/ng2-components/*": "node_modules/ng2-components/*.js",
+          "node_modules/ng2-components/src/hello-world/*": "node_modules/ng2-components/src/hello-world/*.js"
+        },
         packages: {        
           app: {
             format: 'register',
             defaultExtension: 'js'
           }
+        },
+        map: {
+          "ng2-components": "node_modules/ng2-components"
         }
       });
-      System.import('app/boot')
+      System.import('app/main')
             .then(null, console.error.bind(console));
     </script>
-
   </head>
 
-  <!-- 3. Display the application -->
   <body>
     <my-app>Loading...</my-app>
   </body>
-
 </html>

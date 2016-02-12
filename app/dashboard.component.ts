@@ -4,9 +4,13 @@ import { Router } from 'angular2/router';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
+import {HelloWorld} from 'ng2-components/components';
+
 @Component({
 	selector: 'my-dashboard',
-	templateUrl: 'app/dashboard.component.html'
+	templateUrl: 'app/dashboard.component.html',
+	styleUrls: ['app/dashboard.component.css'],
+  //directives: [HelloWorld]
 })
 export class DashboardComponent implements OnInit {
 	heroes: Hero[] = [];
